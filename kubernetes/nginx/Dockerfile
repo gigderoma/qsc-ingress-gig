@@ -1,12 +1,13 @@
 
 # Enable the choice to override the ingress-controller base image, e.g. when having it built from sources locally
 #ARG BASE_IMAGE=us.gcr.io/k8s-artifacts-prod/ingress-nginx/controller:v0.34.1@sha256:0e072dddd1f7f8fc8909a2ca6f65e76c5f0d2fcfb8be47935ae3457e8bbceb20
-ARG BASE_IMAGE=k8s.gcr.io/ingress-nginx/controller:v0.40.2@sha256:46ba23c3fbaafd9e5bd01ea85b2f921d9f2217be082580edc22e6c704a83f02f
+#ARG BASE_IMAGE=k8s.gcr.io/ingress-nginx/controller:v0.40.2@sha256:46ba23c3fbaafd9e5bd01ea85b2f921d9f2217be082580edc22e6c704a83f02f
+ARG BASE_IMAGE=kregistry.k8s.io/ingress-nginx/controller:v1.6.4@sha256:15be4666c53052484dd2992efacf2f50ea77a78ae8aa21ccd91af6baaa7ea22f
 #==============================================================================
 # First stage build
 
 # Build OQS QSC OpenSSL
-FROM alpine:3.11 as qsc_openssl_lib_builder
+FROM alpine:3.17.0 as qsc_openssl_lib_builder
 
 LABEL stage=builder
 
